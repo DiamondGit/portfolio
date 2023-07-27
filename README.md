@@ -1,6 +1,6 @@
-# Portfolio Project
+# Arman's Portfolio
 
-Welcome to my portfolio project! This project showcases my skills, experience, and projects I have worked on. It provides a glimpse into my expertise and serves as a central hub for potential clients or employers to learn more about me.
+Welcome to my portfolio! This project showcases my skills, experience, and projects I have worked on. It provides a glimpse into my expertise and serves as a central hub for potential clients or employers to learn more about me.
 
 ## Features
 
@@ -10,7 +10,7 @@ Welcome to my portfolio project! This project showcases my skills, experience, a
 - **Skills:** An overview of the programming languages, frameworks, and tools I am proficient in.
 - **Contact:** A contact form and relevant information for reaching out to me.
 
-## Technologies Used
+## Technical Skills
 
 #### Base Technologies:
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](#)
@@ -34,7 +34,6 @@ Welcome to my portfolio project! This project showcases my skills, experience, a
 [![Material UI](https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white)](#)
 [![Ant Design](https://img.shields.io/badge/Ant%20Design-1890FF?style=for-the-badge&logo=antdesign&logoColor=white)](#)
 
-
 ## Getting Started
 
 To run this project locally, please follow these steps:
@@ -50,7 +49,7 @@ To run this project locally, please follow these steps:
 Feel free to reach out to me if you have any questions, feedback, or opportunities. You can contact me through the following channels:
 
 - Email: [arman27zhuma@gmail.com](mailto:arman27zhuma@gmail.com)
-- LinkedIn: [Arman Zhumatayev](https://www.linkedin.com/in/arman-zhumatayev-b1a49b276/)
+- LinkedIn: [Arman Zhumatayev](https://www.linkedin.com/in/arman-zhumatayev/)
 - Telegram: [@arman27z](https://t.me/arman27z)
 
-Thank you for visiting my portfolio project!
+Thank you for visiting my portfolio!
