@@ -1,0 +1,81 @@
+$main_400: #ffb732;
+
+$main_200: lighten($main_400, 20%);
+$main_300: lighten($main_400, 10%);
+
+$main_500: darken($main_400, 10%);
+$main_600: darken($main_400, 20%);
+
+$secondary_400: #4dbe94;
+
+$secondary_200: lighten($secondary_400, 20%);
+$secondary_300: lighten($secondary_400, 10%);
+
+$secondary_500: darken($secondary_400, 10%);
+$secondary_600: darken($secondary_400, 20%);
+
+$error_400: #f15738;
+
+$error_200: lighten($error_400, 20%);
+$error_300: lighten($error_400, 10%);
+
+$error_500: darken($error_400, 10%);
+$error_600: darken($error_400, 20%);
+
+$success_400: #74b81a;
+
+$success_200: lighten($success_400, 20%);
+$success_300: lighten($success_400, 10%);
+
+$success_500: darken($success_400, 10%);
+$success_600: darken($success_400, 20%);
+
+$white_400: #f6f6f6;
+
+$white_500: darken($white_400, 10%);
+$white_600: darken($white_400, 20%);
+
+$black_400: #004c67;
+
+$black_200: lighten($black_400, 10%);
+$black_300: lighten($black_400, 5%);
+
+$black_500: darken($black_400, 5%);
+$black_600: darken($black_400, 10%);
+
+@mixin forMobile {
+    @media (min-width: 576px) {
+        @content;
+    }
+}
+@mixin forTablet {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+@mixin forLaptop {
+    @media (min-width: 992px) {
+        @content;
+    }
+}
+@mixin forDesktop {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin responsiveText($fontSize) {
+    font-size: $fontSize;
+    @include forMobile {
+        font-size: $fontSize * 1.25;
+    }
+    @include forTablet {
+        font-size: $fontSize * 1.5;
+    }
+    @include forLaptop {
+        font-size: $fontSize * 1.75;
+    }
+    @include forDesktop {
+        font-size: $fontSize * 2;
+    }
+}

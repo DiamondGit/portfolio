@@ -1,0 +1,14 @@
+@import "../../stylesLibrary.scss";
+
+.container {
+    span {
+        font-size: 48px;
+        color: $black_400;
+        font-weight: bold;
+        font-family: monospace;
+        opacity: 0.5;
+        &.isComputedItem {
+            opacity: 1;
+        }
+    }
+}

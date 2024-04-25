@@ -1,0 +1,49 @@
+@import "../stylesLibrary.scss";
+
+*,
+*::before,
+*::after {
+    font-family: "Raleway", sans-serif;
+    color: $black_400;
+}
+
+body {
+    background-color: $white_400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+}
+
+h1 {
+    @include responsiveText(2.5rem);
+}
+
+h2 {
+    @include responsiveText(2rem);
+}
+
+h3 {
+    @include responsiveText(1.5rem);
+}
+
+h4 {
+    @include responsiveText(1.25rem);
+}
+
+h5 {
+    @include responsiveText(1rem);
+}
+
+h6 {
+    @include responsiveText(0.8rem);
+}
+
+p, span, strong {
+    @include responsiveText(0.65rem);
+}

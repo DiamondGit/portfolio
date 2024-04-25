@@ -1,0 +1,67 @@
+@import "../../stylesLibrary.scss";
+
+$transitionTime: 200ms;
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100dvh;
+    max-height: 100dvh;
+    min-height: 100dvh;
+    .sideMenu {
+        position: absolute;
+        z-index: 10000;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: $white_400;
+        padding: 12px;
+        box-shadow: -4px 0 16px rgba(black, 0.1);
+        transition: left $transitionTime;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        &.expanded {
+            left: -200px;
+        }
+        .expandBtn {
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            font-size: 24px;
+            background: transparent;
+            transition: background 200ms;
+            &:hover {
+                background: rgba(black, 0.05);
+            }
+        }
+    }
+}
+
+.mask {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba($black_600, 0.5);
+    &.maskEnter {
+        opacity: 0;
+    }
+    &.maskEnterActive {
+        opacity: 1;
+        transition: opacity $transitionTime;
+    }
+    &.maskExit {
+        opacity: 1;
+    }
+    &.maskExitActive {
+        opacity: 0;
+        transition: opacity $transitionTime;
+    }
+}

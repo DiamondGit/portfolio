@@ -1,0 +1,10 @@
+@import "../../../stylesLibrary.scss";
+
+.container {
+    height: 100dvh;
+    display: grid;
+    grid-template-columns: 1fr 72px;
+    .content {
+        width: 100%;
+    }
+}
