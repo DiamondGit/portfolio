@@ -3,37 +3,35 @@
 $transitionTime: 200ms;
 
 .container {
+    height: 100%;
     position: relative;
     width: 100%;
-    height: 100dvh;
-    max-height: 100dvh;
-    min-height: 100dvh;
     .sideMenu {
-        position: absolute;
-        z-index: 10000;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        align-items: center;
         background: $white_400;
-        padding: 12px;
+        bottom: 0;
         box-shadow: -4px 0 16px rgba(black, 0.1);
-        transition: left $transitionTime;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        align-items: center;
+        left: 0;
+        padding: 12px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: left $transitionTime;
+        z-index: 10000;
         &.expanded {
             left: -200px;
         }
         .expandBtn {
-            padding: 10px;
-            display: flex;
-            justify-content: center;
             align-items: center;
-            border-radius: 8px;
-            font-size: 24px;
             background: transparent;
+            border-radius: 8px;
+            display: flex;
+            font-size: 24px;
+            justify-content: center;
+            padding: 10px;
             transition: background 200ms;
             &:hover {
                 background: rgba(black, 0.05);
@@ -43,13 +41,13 @@ $transitionTime: 200ms;
 }
 
 .mask {
-    position: fixed;
-    z-index: 1000;
-    top: 0;
-    right: 0;
+    background-color: rgba($black_600, 0.5);
     bottom: 0;
     left: 0;
-    background-color: rgba($black_600, 0.5);
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
     &.maskEnter {
         opacity: 0;
     }

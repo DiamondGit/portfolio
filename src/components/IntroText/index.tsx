@@ -1,6 +1,6 @@
+import classNames from "classnames";
 import { useEffect, useState } from "react";
 import styles from "./IntroText.module.scss";
-import classNames from "classnames";
 
 type IntroTextProps = {
     text: string;

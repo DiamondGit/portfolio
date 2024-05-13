@@ -1,16 +1,16 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import MainContent from "./MainContent";
-import NotFoundPage from "./NotFoundPage";
 import PageLayout from "../components/wrappers/PageLayout";
 import "./App.scss";
+import Main from "./Main";
+import NotFound from "./NotFound";
 
 function App() {
     return (
         <Router>
             <PageLayout>
                 <Routes>
-                    <Route path="/" element={<MainContent />} />
-                    <Route path="*" element={<NotFoundPage />} />
+                    <Route path="/" element={<Main />} />
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </PageLayout>
         </Router>

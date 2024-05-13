@@ -44,6 +44,8 @@ h6 {
     @include responsiveText(0.8rem);
 }
 
-p, span, strong {
+p,
+span,
+strong {
     @include responsiveText(0.65rem);
 }

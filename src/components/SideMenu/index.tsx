@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import styles from "./SideMenu.module.scss";
-import { LuAlignJustify } from "react-icons/lu";
 import classNames from "classnames";
-import OutsideClickHandler from "../wrappers/OutsideClickHandler";
+import { useState } from "react";
 import { createPortal } from "react-dom";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { LuAlignJustify } from "react-icons/lu";
+import { CSSTransition } from "react-transition-group";
+import OutsideClickHandler from "../wrappers/OutsideClickHandler";
+import styles from "./SideMenu.module.scss";
 
 type NavItem = {
     title: string;
