@@ -1,0 +1,33 @@
+@import "../../stylesLibrary.scss";
+
+.container {
+    background: $white_500;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow: hidden;
+    position: relative;
+    width: 500px;
+    .segment {
+        align-items: center;
+        color: black;
+        cursor: pointer;
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        overflow: hidden;
+        padding: 6px;
+        position: relative;
+        white-space: nowrap;
+        word-break: keep-all;
+        z-index: 100;
+    }
+    .highlight {
+        background-color: $white_400;
+        box-shadow: 0 0px 18px rgba(77, 77, 77, 0.5);
+        overflow: hidden;
+        position: absolute;
+        transition: left 200ms;
+        z-index: 10;
+    }
+}
