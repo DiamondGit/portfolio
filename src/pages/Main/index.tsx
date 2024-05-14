@@ -2,6 +2,7 @@ import { useState } from "react";
 import Segmented, { SegmentedSegmentsType } from "../../components/Segmented";
 import ContentLayout from "../../components/wrappers/ContentLayout";
 import styles from "./MainContent.module.scss";
+import ThemeSwitch from "../../components/ThemeSwitch";
 
 const segments: SegmentedSegmentsType<number> = [
     { label: "Left", value: 1 },
@@ -18,7 +19,7 @@ const Main = () => {
 
     return (
         <ContentLayout>
-            <div className={styles.welcomePage}>
+            {/* <div className={styles.welcomePage}>
                 <div className={styles.imageContainer}>
                     <img
                         className={styles.image}
@@ -27,11 +28,12 @@ const Main = () => {
                     />
                 </div>
                 <div className={styles.textContainer}>
-                    <h4>Welcome to</h4>
-                    <h1>Creative world</h1>
+                    <h4>Intro to</h4>
+                    <h1>Welcome page</h1>
                 </div>
-            </div>
+            </div> */}
             <Segmented active={activeSegment} segments={segments} onChange={handleChangeSegment} />
+            <ThemeSwitch />
         </ContentLayout>
     );
 };

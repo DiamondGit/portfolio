@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import styles from "./Segmented.module.scss";
+import classNames from "classnames";
 
 type SegmentedItemType<T> = {
     label: string;
@@ -8,7 +9,7 @@ type SegmentedItemType<T> = {
 
 const containerBorderRadius = 10;
 const containerPadding = 4;
-const containerGap = 4;
+const containerGap = 16;
 
 export type SegmentedSegmentsType<T> = SegmentedItemType<T>[];
 
@@ -25,23 +26,35 @@ const Segmented = <T extends string | number>({ active, segments, onChange }: Se
         if (!segments.some((segment) => segment.value === active)) {
             onChange(segments[0].value);
         }
-    }, []);
+    }, [active, segments, onChange]);
 
     const activeSegmentIndex = Math.max(
         segments.findIndex((segment) => segment.value === active),
         0
     );
+    const segmentCount = segments.length;
     const segmentWidth = `calc(calc(100% - ${containerPadding * 2 + (segments.length - 1) * containerGap}px) / ${
         segments.length
     })`;
+    const separatorLeft = (order: number) =>
+        `calc(${containerPadding}px + calc(${segmentWidth} * ${
+            order + 1
+        }) + calc(${containerGap}px * ${order}) + ${containerGap}px / 2)`;
+    const highlightLeft = `calc(${containerPadding}px + calc(calc(${segmentWidth} + ${containerGap}px) * ${activeSegmentIndex}))`;
 
-    function handleClickArrow(event: React.KeyboardEvent) {
+    function computedOnChange(newSegmentValue: T) {
+        if (active !== newSegmentValue) {
+            onChange(newSegmentValue);
+        }
+    }
+
+    function handleClickArrow(event: React.KeyboardEvent<HTMLDivElement>) {
         switch (event.code) {
             case "ArrowLeft":
-                onChange(segments[Math.max(activeSegmentIndex - 1, 0)].value);
+                computedOnChange(segments[Math.max(activeSegmentIndex - 1, 0)].value);
                 return;
             case "ArrowRight":
-                onChange(segments[Math.min(activeSegmentIndex + 1, segments.length - 1)].value);
+                computedOnChange(segments[Math.min(activeSegmentIndex + 1, segmentCount - 1)].value);
                 return;
             case "Enter":
             case "Escape":
@@ -57,31 +70,45 @@ const Segmented = <T extends string | number>({ active, segments, onChange }: Se
             onKeyDown={handleClickArrow}
             className={styles.container}
             style={{
-                gap: `${containerGap}px`,
-                padding: `${containerPadding}px`,
-                borderRadius: `${containerBorderRadius}px`,
+                gap: containerGap,
+                padding: containerPadding,
+                borderRadius: containerBorderRadius,
             }}
         >
             {segments.map((segment, segmentIndex) => (
                 <div
-                    key={`${segmentIndex}_${segment.label}`}
-                    onClick={() => onChange(segment.value)}
-                    className={styles.segment}
+                    key={`${segmentIndex}_${segment.value}`}
+                    onClick={() => computedOnChange(segment.value)}
+                    className={classNames(styles.segment, {
+                        [styles.last]: segmentIndex === segments.length - 1,
+                        [styles.active]: segment.value === active,
+                    })}
                     style={{
-                        borderRadius: `${containerBorderRadius - containerPadding}px`,
+                        borderRadius: containerBorderRadius - containerPadding,
                     }}
                 >
                     {segment.label}
                 </div>
             ))}
+            {segments.slice(0, -1).map((segment, segmentIndex) => (
+                <div
+                    key={`separator_${segmentIndex}_${segment.value}`}
+                    className={styles.separator}
+                    style={{
+                        top: containerPadding * 2,
+                        bottom: containerPadding * 2,
+                        left: separatorLeft(segmentIndex),
+                    }}
+                />
+            ))}
             <div
                 className={styles.highlight}
                 style={{
                     width: segmentWidth,
-                    left: `calc(${containerPadding}px + calc(calc(${segmentWidth} + ${containerGap}px) * ${activeSegmentIndex}))`,
-                    top: `${containerPadding}px`,
-                    bottom: `${containerPadding}px`,
-                    borderRadius: `${containerBorderRadius - containerPadding}px`,
+                    left: highlightLeft,
+                    top: containerPadding,
+                    bottom: containerPadding,
+                    borderRadius: containerBorderRadius - containerPadding,
                 }}
             />
         </div>

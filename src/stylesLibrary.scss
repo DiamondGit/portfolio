@@ -35,13 +35,13 @@ $white_400: #f6f6f6;
 $white_500: darken($white_400, 10%);
 $white_600: darken($white_400, 20%);
 
-$black_400: #004c67;
+$black_400: #2e2e2e;
 
-$black_200: lighten($black_400, 10%);
-$black_300: lighten($black_400, 5%);
+$black_200: lighten($black_400, 30%);
+$black_300: lighten($black_400, 15%);
 
-$black_500: darken($black_400, 5%);
-$black_600: darken($black_400, 10%);
+$black_500: darken($black_400, 15%);
+$black_600: darken($black_400, 30%);
 
 @mixin forMobile {
     @media (min-width: 576px) {
