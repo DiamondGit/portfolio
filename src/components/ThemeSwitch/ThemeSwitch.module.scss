@@ -12,53 +12,77 @@
 $borderWidth: 4px;
 
 .container {
-    width: max-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    height: 80px;
     padding: 20px;
-    background: white;
+    background: lightcyan;
     cursor: pointer;
     border-radius: 8px;
+    position: relative;
     transition: background 100ms;
     &:hover {
-        background: rgb(240, 240, 240);
+        background: lightblue;
     }
-    .icon {
-        @include setSize(36px);
-        border-radius: 50%;
-        position: relative;
-        border: $borderWidth solid black;
-        .lightItem {
-            width: 100%;
+    .themeItem {
+        position: absolute;
+        padding: 16px;
+        outline: 2px solid red;
+        top: 0;
+        bottom: 0;
+        width: max-content;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: left 100ms;
+        &.light,
+        &:not(.dark) {
+            left: 0;
+        }
+        &.dark,
+        &:not(.light) {
+            right: 0;
+        }
+    }
+}
+
+.icon {
+    @include setSize(36px);
+    border-radius: 50%;
+    position: relative;
+    border: $borderWidth solid black;
+    transition: border 300ms;
+    &.lightMode {
+        border-color: red;
+    }
+    .lightItem {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .wrapper {
+            position: relative;
+            width: $borderWidth;
             height: 100%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            .wrapper {
-                position: relative;
-                width: $borderWidth;
-                height: 100%;
-                &::after {
-                    content: "";
-                    width: 100%;
-                    height: $borderWidth * 1.5;
-                    background-color: black;
-                    position: absolute;
-                    top: -($borderWidth * 3.5);
-                    border-radius: $borderWidth;
-                    left: 0;
-                    right: 0;
-                }
+            &::after {
+                content: "";
+                width: 100%;
+                height: $borderWidth * 1.5;
+                background-color: black;
+                position: absolute;
+                top: -($borderWidth * 3.5);
+                border-radius: $borderWidth;
+                left: 0;
+                right: 0;
             }
         }
-        @for $i from 0 through 8 {
-            .lightItem:nth-child(#{$i}) {
-                transform: translate(-50%, -50%) rotate(#{$i * 45deg});
-            }
+    }
+    @for $i from 0 through 8 {
+        .lightItem:nth-child(#{$i}) {
+            transform: translate(-50%, -50%) rotate(#{$i * 45deg});
         }
     }
 }

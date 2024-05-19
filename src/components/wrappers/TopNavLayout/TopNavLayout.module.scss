@@ -1,0 +1,45 @@
+@import "../../../stylesLibrary.scss";
+
+.layout {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-height: 100dvh;
+    .topNav {
+        background: $white_400;
+        box-shadow: 0 4px 16px rgba(black, 0.2);
+        .container {
+            align-items: center;
+            display: flex;
+            gap: 48px;
+            justify-content: space-between;
+            padding: 16px 0;
+            .navsContainer {
+                align-items: center;
+                display: flex;
+                gap: 8px;
+                justify-content: flex-start;
+                width: 100%;
+                .nav {
+                    border-radius: 4px;
+                    color: $black_300;
+                    font-weight: bold;
+                    padding: 6px 10px;
+                    transition: background 100ms, color 100ms;
+                    &:hover {
+                        color: $black_400;
+                        background: rgba($white_500, 0.5);
+                    }
+                    &:active {
+                        color: $black_300;
+                        background: rgba($white_500, 0.2);
+                    }
+                }
+            }
+        }
+    }
+    .content {
+        overflow-y: scroll;
+        width: 100%;
+        padding: 48px 0;
+    }
+}

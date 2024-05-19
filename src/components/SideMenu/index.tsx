@@ -3,6 +3,7 @@ import { useState } from "react";
 import { createPortal } from "react-dom";
 import { LuAlignJustify } from "react-icons/lu";
 import { CSSTransition } from "react-transition-group";
+import ThemeSwitch from "../ThemeSwitch";
 import OutsideClickHandler from "../wrappers/OutsideClickHandler";
 import styles from "./SideMenu.module.scss";
 
@@ -81,6 +82,7 @@ const SideMenu = () => {
                     <button className={styles.expandBtn} onClick={toggleExpand}>
                         <LuAlignJustify />
                     </button>
+                    {/* <ThemeSwitch sideMenuExpanded={expanded} /> */}
                 </aside>
             </OutsideClickHandler>
             <Mask active={expanded} />

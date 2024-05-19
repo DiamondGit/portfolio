@@ -1,19 +1,19 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import PageLayout from "../components/wrappers/PageLayout";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import TopNavLayout from "../components/wrappers/TopNavLayout";
 import "./App.scss";
 import Main from "./Main";
 import NotFound from "./NotFound";
 
 function App() {
     return (
-        <Router>
-            <PageLayout>
-                <Routes>
+        <BrowserRouter>
+            <Routes>
+                <Route element={<TopNavLayout />}>
                     <Route path="/" element={<Main />} />
                     <Route path="*" element={<NotFound />} />
-                </Routes>
-            </PageLayout>
-        </Router>
+                </Route>
+            </Routes>
+        </BrowserRouter>
     );
 }
 

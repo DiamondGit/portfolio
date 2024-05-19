@@ -1,12 +1,8 @@
 import { Link } from "react-router-dom";
-import ContentLayout from "../../components/wrappers/ContentLayout";
+import { topLvlRoutes } from "../../constants/routes";
 
 const NotFound = () => {
-    return (
-        <ContentLayout>
-            <Link to="/">Back to main</Link>
-        </ContentLayout>
-    );
+    return <Link to={topLvlRoutes.main.path}>Назад на главную страницу</Link>;
 };
 
 export default NotFound;
