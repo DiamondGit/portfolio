@@ -1,81 +1,97 @@
 $main_400: #ffb732;
 
-$main_200: lighten($main_400, 20%);
-$main_300: lighten($main_400, 10%);
+$main_200: lighten($main_400, 33%);
+$main_300: lighten($main_400, 23%);
 
-$main_500: darken($main_400, 10%);
-$main_600: darken($main_400, 20%);
+$main_500: darken($main_400, 30%);
+$main_600: darken($main_400, 45%);
 
-$secondary_400: #4dbe94;
+$warning_400: $main_400;
 
-$secondary_200: lighten($secondary_400, 20%);
-$secondary_300: lighten($secondary_400, 10%);
+$warning_200: lighten($warning_400, 30%);
+$warning_300: lighten($warning_400, 22%);
 
-$secondary_500: darken($secondary_400, 10%);
-$secondary_600: darken($secondary_400, 20%);
+$warning_500: darken($warning_400, 25%);
+$warning_600: darken($warning_400, 35%);
+
+$info_400: #3d9dd4;
+
+$info_200: lighten($info_400, 30%);
+$info_300: lighten($info_400, 22%);
+
+$info_500: darken($info_400, 25%);
+$info_600: darken($info_400, 35%);
 
 $error_400: #f15738;
 
-$error_200: lighten($error_400, 20%);
-$error_300: lighten($error_400, 10%);
+$error_200: lighten($error_400, 30%);
+$error_300: lighten($error_400, 22%);
 
-$error_500: darken($error_400, 10%);
-$error_600: darken($error_400, 20%);
+$error_500: darken($error_400, 25%);
+$error_600: darken($error_400, 35%);
 
 $success_400: #74b81a;
 
-$success_200: lighten($success_400, 20%);
-$success_300: lighten($success_400, 10%);
+$success_200: lighten($success_400, 40%);
+$success_300: lighten($success_400, 27%);
 
-$success_500: darken($success_400, 10%);
-$success_600: darken($success_400, 20%);
+$success_500: darken($success_400, 13%);
+$success_600: darken($success_400, 22%);
 
 $white_400: #f6f6f6;
 
-$white_500: darken($white_400, 10%);
-$white_600: darken($white_400, 20%);
+$white_500: darken($white_400, 2%);
+$white_600: darken($white_400, 5%);
 
 $black_400: #2e2e2e;
 
-$black_200: lighten($black_400, 30%);
-$black_300: lighten($black_400, 15%);
+$black_100: lighten($black_400, 60%);
+$black_200: lighten($black_400, 40%);
+$black_300: lighten($black_400, 20%);
 
-$black_500: darken($black_400, 15%);
-$black_600: darken($black_400, 30%);
+$menuShadowSizeColor: 1rem rgba($black_400, 0.2);
 
-@mixin forMobile {
+@mixin fromMobile {
     @media (min-width: 576px) {
         @content;
     }
 }
-@mixin forTablet {
+@mixin fromTablet {
     @media (min-width: 768px) {
         @content;
     }
 }
-@mixin forLaptop {
+@mixin fromLaptop {
     @media (min-width: 992px) {
         @content;
     }
 }
-@mixin forDesktop {
+@mixin fromDesktop {
     @media (min-width: 1200px) {
         @content;
     }
 }
 
-@mixin responsiveText($fontSize) {
-    font-size: $fontSize;
-    @include forMobile {
-        font-size: $fontSize * 1.25;
+@mixin clickable {
+    background: $white_500;
+    border-radius: 4px;
+    color: $black_400;
+    padding: 6px 10px;
+    transition: background 100ms, color 100ms;
+    font-weight: 700;
+    cursor: pointer;
+    &:hover {
+        background: $white_600;
     }
-    @include forTablet {
-        font-size: $fontSize * 1.5;
+    &:active {
+        background: $white_500;
+        color: $black_300;
     }
-    @include forLaptop {
-        font-size: $fontSize * 1.75;
-    }
-    @include forDesktop {
-        font-size: $fontSize * 2;
-    }
+}
+
+@mixin inputStyles {
+    padding: 4px 6px;
+    border-radius: 4px;
+    min-height: 40px;
+    min-width: 100px;
 }

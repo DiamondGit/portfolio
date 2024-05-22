@@ -1,51 +1,78 @@
 @import "../stylesLibrary.scss";
 
-*,
-*::before,
-*::after {
-    font-family: "Raleway", sans-serif;
-    color: $black_400;
+@mixin selectionStyles {
+    color: $main_600;
+    background: $main_400;
+}
+
+::-moz-selection {
+    @include selectionStyles;
+}
+::selection {
+    @include selectionStyles;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: $white_600;
+}
+::-webkit-scrollbar-thumb {
+    background: $black_200;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: $black_300;
+}
+
+html {
+    font-size: 16px;
+
+    *,
+    *::before,
+    *::after {
+        font-size: 1rem;
+        color: $black_400;
+        font-family: "Raleway", sans-serif;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 16px;
+    }
 }
 
 body {
     background-color: $white_400;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-weight: 700;
-}
-
 h1 {
-    @include responsiveText(2.5rem);
+    font-size: 2.5rem;
+    font-weight: 800;
 }
 
 h2 {
-    @include responsiveText(2rem);
+    font-size: 2rem;
+    font-weight: 800;
 }
 
 h3 {
-    @include responsiveText(1.5rem);
+    font-size: 1.75rem;
+    font-weight: 700;
 }
 
 h4 {
-    @include responsiveText(1.25rem);
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
 h5 {
-    @include responsiveText(1rem);
+    font-size: 1.25rem;
+    font-weight: 600;
 }
 
 h6 {
-    @include responsiveText(0.8rem);
-}
-
-p,
-span,
-strong {
-    @include responsiveText(0.65rem);
+    font-size: 1rem;
+    font-weight: 600;
 }

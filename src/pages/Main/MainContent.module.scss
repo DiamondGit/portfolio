@@ -1,1 +1,13 @@
 @import "../../stylesLibrary.scss";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    button, a, div, code {
+        @include clickable;
+    }
+    textarea, input {
+        @include inputStyles;
+    }
+}
