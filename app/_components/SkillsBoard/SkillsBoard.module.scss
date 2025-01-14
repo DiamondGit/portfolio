@@ -1,0 +1,50 @@
+@import "../../../public/styles.scss";
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+
+    .skillsGroup {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: 1rem;
+        padding: 1rem;
+        border: 2px solid $white-500;
+        background-color: $white-400;
+        border-radius: 1rem;
+
+        .skillsList {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+    }
+}
+
+.card {
+    align-items: center;
+    display: flex;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.75rem;
+    justify-content: center;
+    line-clamp: 1;
+    overflow: hidden;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(black, 0.2);
+
+    .title {
+        display: block;
+        overflow: hidden;
+        text-align: center;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
+        word-break: keep-all;
+    }
+}

@@ -1,0 +1,15 @@
+@import "../../public/styles.scss";
+
+.section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 1rem;
+
+    .title {
+        border-bottom: 1px solid $gray-500;
+        padding-bottom: 1rem;
+        width: 100%;
+    }
+}

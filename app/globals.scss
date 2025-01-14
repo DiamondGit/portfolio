@@ -1,0 +1,10 @@
+@import "../public/styles.scss";
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    color: $black-500;
+    margin: 0;
+    padding: 0;
+}
