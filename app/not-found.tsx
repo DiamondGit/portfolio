@@ -8,7 +8,7 @@ import styles from "./Home.module.scss";
 export default function NotFound() {
     const pathname = usePathname();
     return (
-        <Wrapper contentWrapperClassname={styles.notFoundPage}>
+        <Wrapper centered>
             <h1 className={styles.title}>404 :(</h1>
             <p className={styles.subtitle}>
                 Page <strong>{pathname}</strong> not found. <Link href="/">Back to home</Link>

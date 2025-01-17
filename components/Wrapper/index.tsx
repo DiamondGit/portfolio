@@ -1,14 +1,17 @@
+import classNames from "classnames";
 import styles from "./Wrapper.module.scss";
 
 export default function Wrapper({
-    contentWrapperClassname,
     children,
+    centered = false,
+    contentWrapperClassname,
 }: {
-    contentWrapperClassname?: string;
     children: React.ReactNode;
+    centered?: boolean;
+    contentWrapperClassname?: string;
 }) {
     return (
-        <div className={styles.wrapper}>
+        <div className={classNames(styles.wrapper, { [styles.centered]: centered })}>
             {!!contentWrapperClassname ? <div className={contentWrapperClassname}>{children}</div> : children}
         </div>
     );

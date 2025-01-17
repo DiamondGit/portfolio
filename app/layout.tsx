@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import { connectToMongoDB } from "@/config/db";
 import classNames from "classnames";
 import type { Metadata } from "next";
 import { Lexend as GeneralFont } from "next/font/google";
@@ -20,6 +21,7 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    connectToMongoDB();
     return (
         <html lang="en">
             <body className={classNames(styles.layout, generalFont.className)}>
