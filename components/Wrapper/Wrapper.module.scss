@@ -1,5 +1,15 @@
 .wrapper {
-    width: 100%;
-    max-width: 1400px;
     margin: 0 auto;
+    max-width: 1400px;
+    padding: 0 2rem;
+    width: 100%;
+
+    &.centered {
+        padding-top: 10rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1.5rem;
+    }
 }
