@@ -4,8 +4,10 @@ import { connectToMongoDB } from "@/config/db";
 import classNames from "classnames";
 import type { Metadata } from "next";
 import { Lexend as GeneralFont } from "next/font/google";
-import "./globals.scss";
+import "./global.css";
+import "./global.scss";
 import styles from "./Layout.module.scss";
+import Providers from "./providers";
 
 const generalFont = GeneralFont({
     weight: "400",
@@ -23,11 +25,13 @@ export default function RootLayout({
 }>) {
     connectToMongoDB();
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
             <body className={classNames(styles.layout, generalFont.className)}>
-                <Navbar />
-                <main>{children}</main>
-                <Footer />
+                <Providers>
+                    <Navbar />
+                    <main>{children}</main>
+                    <Footer />
+                </Providers>
             </body>
         </html>
     );

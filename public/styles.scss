@@ -29,3 +29,10 @@ $pink-600: #f894ba;
 $neutral-400: #f0f0f0;
 $neutral-500: #d9d9d9;
 $neutral-600: #c2c2c2;
+
+@mixin fixedSize($width, $height) {
+    min-width: $width;
+    max-width: $width;
+    min-height: $height;
+    max-height: $height;
+}

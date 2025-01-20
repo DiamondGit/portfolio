@@ -28,15 +28,36 @@
 
 .card {
     align-items: center;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(black, 0.2);
     display: flex;
     font-family: "Courier New", Courier, monospace;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
+    font-weight: bold;
     justify-content: center;
     line-clamp: 1;
     overflow: hidden;
     padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 8px rgba(black, 0.2);
+    position: relative;
+
+    &::before {
+        content: "";
+        background: rgba(white, 0.1);
+        height: 100%;
+        transform-origin: bottom center;
+        pointer-events: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transform: translate(50%, -50%) rotate(30deg);
+        transition: transform 200ms, background 200ms;
+        width: 300%;
+    }
+
+    &:hover::before {
+        background: rgba(white, 0.3);
+        transform: translate(calc(50% - 1rem), calc(-50% + 1rem)) rotate(30deg);
+    }
 
     .title {
         display: block;
