@@ -1,0 +1,44 @@
+@import "../../public/styles.scss";
+
+.container {
+    aspect-ratio: 367 / 233;
+    display: block;
+    height: 42px;
+
+    svg path {
+        fill: $black;
+    }
+
+    &.dark svg path {
+        fill: $primary;
+    }
+
+    svg {
+        width: 100%;
+        height: 100%;
+
+        path {
+            animation: animate 10s infinite;
+            opacity: 0;
+            transform-origin: center center;
+            @for $i from 1 through 16 {
+                &:nth-child(#{$i}) {
+                    animation-delay: #{200 * $i}ms;
+                }
+            }
+        }
+    }
+}
+
+@keyframes animate {
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    10%,
+    90% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

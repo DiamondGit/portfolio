@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import { connectToMongoDB } from "@/config/db";
 import classNames from "classnames";
 import type { Metadata } from "next";
-import { Lexend as GeneralFont } from "next/font/google";
+import { Noto_Sans as GeneralFont } from "next/font/google";
 import "./global.css";
 import "./global.scss";
 import styles from "./Layout.module.scss";
@@ -14,7 +14,7 @@ const generalFont = GeneralFont({
 });
 
 export const metadata: Metadata = {
-    title: "Arman's Portfolio",
+    title: "Portfolio",
     description: "Created By Arman",
 };
 

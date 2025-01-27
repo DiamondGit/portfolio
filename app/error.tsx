@@ -1,5 +1,6 @@
 "use client";
 
+import Button from "@/components/Button";
 import Wrapper from "@/components/Wrapper";
 
 export default function Error({ error }: { error: Error }) {
@@ -7,7 +8,7 @@ export default function Error({ error }: { error: Error }) {
         <Wrapper centered>
             <h1>Oops... Error...</h1>
             <p>{error.message}</p>
-            <button onClick={() => window.location.reload()}>Try again</button>
+            <Button onClick={() => window.location.reload()}>Try again</Button>
         </Wrapper>
     );
 }

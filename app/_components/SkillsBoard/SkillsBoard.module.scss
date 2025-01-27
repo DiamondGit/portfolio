@@ -12,8 +12,8 @@
         align-items: stretch;
         gap: 1rem;
         padding: 1rem;
-        border: 2px solid $white-500;
-        background-color: $white-400;
+        border: 2px solid $white;
+        background-color: $white;
         border-radius: 1rem;
 
         .skillsList {
@@ -31,9 +31,7 @@
     border-radius: 0.5rem;
     box-shadow: 0 2px 8px rgba(black, 0.2);
     display: flex;
-    font-family: "Courier New", Courier, monospace;
     font-size: 0.85rem;
-    font-weight: bold;
     justify-content: center;
     line-clamp: 1;
     overflow: hidden;

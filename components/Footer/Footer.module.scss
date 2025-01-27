@@ -1,5 +1,32 @@
 @import "../../public/styles.scss";
 
 .footer {
-    background-color: $white-500;
+    background-color: $black;
+    padding: 2rem 0;
+
+    .contentWrapper {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 1rem;
+        @include fromTablet {
+            gap: 2rem;
+        }
+
+        .linksContainer {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 0.5rem;
+
+            .link {
+                color: $white;
+                text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
 }

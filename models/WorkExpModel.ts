@@ -1,18 +1,13 @@
-import { RangeType } from "@/public/types/commonTypes";
+import { WorkExpType } from "@/public/types/commonTypes";
 import { Model, Schema, model, models } from "mongoose";
 
-type WorkExpType = {
-    companyName: string;
-    description: string;
-} & RangeType;
-
 const WorkExpSchema = new Schema<WorkExpType>({
-    companyName: { type: String, required: true },
-    startDate: { type: Date, required: true, unique: true },
-    endDate: { type: Date, required: true, unique: true },
-    description: { type: String, required: true },
+    companyName: { type: String, required: true, default: null },
+    startDate: { type: Date, required: true, unique: true, default: null },
+    endDate: { type: Date, required: true, unique: true, default: null },
+    description: { type: String, required: true, default: null },
 });
 
-const WorkExpModel: Model<WorkExpType> = models.WorkExp || model("WorkExp", WorkExpSchema);
+const WorkExpModel: Model<WorkExpType> = models.WorkExps || model("WorkExps", WorkExpSchema, "WorkExps");
 
 export default WorkExpModel;

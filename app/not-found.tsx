@@ -1,18 +1,19 @@
 "use client";
 
+import LinkButton from "@/components/LinkButton";
 import Wrapper from "@/components/Wrapper";
-import Link from "next/link";
+import { pathDict } from "@/public/paths";
 import { usePathname } from "next/navigation";
-import styles from "./Home.module.scss";
 
 export default function NotFound() {
     const pathname = usePathname();
     return (
         <Wrapper centered>
-            <h1 className={styles.title}>404 :(</h1>
-            <p className={styles.subtitle}>
-                Page <strong>{pathname}</strong> not found. <Link href="/">Back to home</Link>
+            <h1>404 :(</h1>
+            <p>
+                Page <strong>{pathname}</strong> does not found.
             </p>
+            <LinkButton href={pathDict.home.path}>Back to home</LinkButton>
         </Wrapper>
     );
 }
