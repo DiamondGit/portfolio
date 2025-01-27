@@ -29,3 +29,66 @@ $pink-600: #f894ba;
 $neutral-400: #f0f0f0;
 $neutral-500: #d9d9d9;
 $neutral-600: #c2c2c2;
+
+$mobileScreenSize: 576px;
+$tabletScreenSize: 768px;
+$laptopScreenSize: 992px;
+$desktopScreenSize: 1200px;
+
+@mixin fromMobile {
+    @media (min-width: $mobileScreenSize) {
+        @content;
+    }
+}
+@mixin fromTablet {
+    @media (min-width: $tabletScreenSize) {
+        @content;
+    }
+}
+@mixin fromLaptop {
+    @media (min-width: $laptopScreenSize) {
+        @content;
+    }
+}
+@mixin fromDesktop {
+    @media (min-width: $desktopScreenSize) {
+        @content;
+    }
+}
+
+@mixin tillMobile {
+    @media (max-width: calc($mobileScreenSize - 1px)) {
+        @content;
+    }
+}
+@mixin tillTablet {
+    @media (max-width: calc($tabletScreenSize - 1px)) {
+        @content;
+    }
+}
+@mixin tillLaptop {
+    @media (max-width: calc($laptopScreenSize - 1px)) {
+        @content;
+    }
+}
+@mixin tillDesktop {
+    @media (max-width: calc($desktopScreenSize - 1px)) {
+        @content;
+    }
+}
+
+@mixin inMobile {
+    @media (min-width: $mobileScreenSize) and (max-width: calc($tabletScreenSize - 1px)) {
+        @content;
+    }
+}
+@mixin inTablet {
+    @media (min-width: $tabletScreenSize) and (max-width: calc($laptopScreenSize - 1px)) {
+        @content;
+    }
+}
+@mixin inLaptop {
+    @media (min-width: $laptopScreenSize) and (max-width: calc($desktopScreenSize - 1px)) {
+        @content;
+    }
+}

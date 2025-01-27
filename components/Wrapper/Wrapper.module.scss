@@ -1,8 +1,16 @@
+@import "../../public/styles.scss";
+
 .wrapper {
     margin: 0 auto;
     max-width: 1400px;
-    padding: 0 2rem;
+    padding: 0 1rem;
     width: 100%;
+    @include fromMobile {
+        padding: 0 1.5rem;
+    }
+    @include fromTablet {
+        padding: 0 2rem;
+    }
 
     &.centered {
         padding-top: 10rem;

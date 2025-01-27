@@ -1,0 +1,23 @@
+@import "../../public/styles.scss";
+
+.button {
+    background: $white-500;
+    border-radius: 0.5rem;
+    border: 2px solid $black-400;
+    padding: 0.5rem;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 0 $black-400;
+    transition: background 100ms, transform 100ms, box-shadow 100ms;
+    @media (hover: hover) {
+        &:hover {
+            background: $white-600;
+            transform: translateY(-1px);
+            box-shadow: 0 1px 0 $black-400;
+        }
+    }
+    &:active {
+        background: $neutral-600;
+        transform: translateY(0);
+        box-shadow: 0 0 0 $black-400;
+    }
+}

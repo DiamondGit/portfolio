@@ -4,22 +4,76 @@ $backgroundColor: $white-400;
 
 .navbar {
     background: linear-gradient(to bottom, rgba($backgroundColor, 1) 20%, rgba($backgroundColor, 0.85));
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 1rem 0;
     box-shadow: 0 4px 16px rgba(black, 0.1);
+    left: 0;
+    padding: 0.5rem 0;
+    position: sticky;
+    right: 0;
+    top: 0;
+    z-index: 999999;
+    @include fromTablet {
+        padding: 1rem 0;
+    }
+
+    .navbarContent {
+        &.mobile {
+            display: contents;
+            @include fromTablet {
+                display: none;
+            }
+        }
+        &.desktop {
+            display: none;
+            @include fromTablet {
+                display: contents;
+            }
+        }
+
+        .sideMenu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: $white-500;
+            transition: transform 200ms;
+            &:not(.open) {
+                transform: translateX(100%);
+            }
+
+            .sideMenuContent {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: stretch;
+                gap: 0.5rem;
+                padding: 1rem 0;
+
+                .closeButton {
+                    align-self: flex-end;
+                }
+            }
+        }
+    }
 
     .navsContainer {
         display: flex;
         justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.link {
+    align-items: center;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-start;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
     }
 
-    a {
-        text-decoration: none;
-        &:hover {
-            text-decoration: underline;
-        }
+    .icon {
+        fill: $gray-600;
     }
 }
