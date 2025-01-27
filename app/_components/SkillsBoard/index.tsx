@@ -1,3 +1,5 @@
+"use client";
+
 import skills from "@/public/data/skills";
 import SkillCard from "./SkillCard";
 import styles from "./SkillsBoard.module.scss";

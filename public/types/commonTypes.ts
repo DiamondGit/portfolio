@@ -10,3 +10,8 @@ export type PathType = {
     name: string;
     RelatedIcon: IconType;
 };
+
+export type WorkExpType = {
+    companyName: string;
+    description: string;
+} & RangeType;

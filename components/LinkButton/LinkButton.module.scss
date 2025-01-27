@@ -1,10 +1,15 @@
 @import "../../public/styles.scss";
 
-.button {
+.link {
+    align-items: center;
     background: $primary;
     border-radius: 0.5rem;
     color: $white;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-start;
     padding: 0.5rem 1rem;
+    width: max-content;
     @media (hover: hover) {
         &:hover {
             background: darken($primary, 10);
@@ -13,10 +18,8 @@
     &:active {
         background: darken($primary, 20);
     }
-    &.iconBtn {
-        padding: 0.5rem;
-        svg {
-            fill: $white;
-        }
+
+    .icon {
+        fill: $white;
     }
 }

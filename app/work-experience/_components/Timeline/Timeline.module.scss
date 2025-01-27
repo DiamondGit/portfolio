@@ -1,0 +1,72 @@
+@import "../../../../public/styles.scss";
+
+$timelineLineSize: 4px;
+$timelineItemDotSize: 16px;
+$sizesDiff: $timelineItemDotSize - $timelineLineSize;
+
+.timeline {
+    max-width: 600px;
+    position: relative;
+    width: 100%;
+    &::before {
+        content: "";
+        background: $black;
+        border-radius: $timelineLineSize;
+        bottom: 0;
+        left: $sizesDiff / 2;
+        position: absolute;
+        top: 0;
+        width: $timelineLineSize;
+    }
+
+    & > li {
+        padding-left: 2rem;
+        padding: 0.5rem;
+        padding-left: calc($timelineItemDotSize + 1rem);
+        position: relative;
+        &:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+        &::before {
+            content: "";
+            background: $primary;
+            border-radius: $timelineItemDotSize;
+            outline: 4px solid $white;
+            height: $timelineItemDotSize;
+            left: 0;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: $timelineItemDotSize;
+        }
+    }
+}
+
+.item {
+    align-items: stretch;
+    background: $white;
+    border-radius: 1rem;
+    border: 2px solid rgba($gray, 0.5);
+    box-shadow: 0 4px 8px $gray;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: flex-start;
+    padding: 0.5rem 1rem;
+    width: 100%;
+
+    .range {
+        font-weight: 600;
+        color: $gray;
+        font-size: 0.9rem;
+    }
+
+    .companyName {
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+    hr {
+        margin: 0.5rem 0;
+    }
+}

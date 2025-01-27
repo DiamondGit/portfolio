@@ -1,9 +1,11 @@
 import Wrapper from "@/components/Wrapper";
+import PageWrapper from "@/components/Wrapper/PageWrapper";
 import WorkExpModel from "@/models/WorkExpModel";
-import { formatRange } from "@/public/utils";
+import { formatDateTotalWorkExpDuration } from "@/public/utils";
+import Timeline from "./_components/Timeline";
 
 export default async function WorkExpPage() {
-    const workExps = await WorkExpModel.find({});
+    const workExps = await WorkExpModel.find().lean().exec();
 
     if (workExps.length === 0)
         return (
@@ -14,19 +16,12 @@ export default async function WorkExpPage() {
 
     workExps.sort((workExpA, workExpB) => workExpA.startDate.getTime() - workExpB.startDate.getTime());
 
+    const workExpsWithId = workExps.map((workExp) => ({ ...workExp, id: workExp._id.toString() }));
+
     return (
-        <Wrapper centered>
-            <ul>
-                {workExps.map((workExp) => (
-                    <li key={workExp._id.toString()}>
-                        <div>
-                            <h3>{workExp.companyName}</h3>
-                            <h6>{formatRange(workExp)}</h6>
-                            <p>{workExp.description}</p>
-                        </div>
-                    </li>
-                ))}
-            </ul>
-        </Wrapper>
+        <PageWrapper>
+            <h2>Total work experience: <span>{formatDateTotalWorkExpDuration(workExps)}</span></h2>
+            <Timeline workExps={workExpsWithId} />
+        </PageWrapper>
     );
 }

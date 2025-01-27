@@ -13,7 +13,7 @@ export async function connectToMongoDB() {
     try {
         const dbUri = process.env.MONGODB_URI;
         if (!dbUri) throw new Error("No env variable MONGODB_URI of db");
-        const cnx = await mongoose.connect(dbUri, { appName: "Portfolio", dbName: "personal" });
+        const cnx = await mongoose.connect(dbUri);
         cachedConnection = cnx.connection;
         coloredConsole(">> New MongoDB connection established", StatusEnum.success);
         return cachedConnection;
